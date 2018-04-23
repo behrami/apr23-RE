@@ -119,11 +119,18 @@ end
 # --------------------------------------
 
 def display_views(stuff)
+
+  5.times do
+    read_article(stuff)
+  end
+
   stuff[:response][:results].each do |hash|
       puts "Title: #{hash[:webTitle]}"
       puts "Views: #{hash[:views]}"
   end
 end
+
+# ---------------------------------
 
 puts read_article(stuff)
 display_views(stuff)
