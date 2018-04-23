@@ -102,8 +102,28 @@ isHosted: false
 ]}
 }
 
+# ---------------------------------------
+
 stuff[:response][:results].each do |hash|
     hash[:views] = 0
 end
 
-puts stuff
+# ------------------------------------
+
+def read_article(stuff)
+  article= stuff[:response][:results].sample
+  article[:views] += 1
+  return article
+end
+
+# --------------------------------------
+
+def display_views(stuff)
+  stuff[:response][:results].each do |hash|
+      puts "Title: #{hash[:webTitle]}"
+      puts "Views: #{hash[:views]}"
+  end
+end
+
+puts read_article(stuff)
+display_views(stuff)
